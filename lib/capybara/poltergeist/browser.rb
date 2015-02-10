@@ -189,6 +189,18 @@ module Capybara::Poltergeist
       command 'drag_by', page_id, id, x, y
     end
 
+    def mouse_down_at(x, y)
+      command 'mouse_down_at', x, y
+    end
+
+    def mouse_move_at(x, y)
+      command 'mouse_move_at', x, y
+    end
+
+    def mouse_up_at(x, y)
+      command 'mouse_up_at', x, y
+    end
+
     def select(page_id, id, value)
       command 'select', page_id, id, value
     end

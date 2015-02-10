@@ -48,6 +48,10 @@ class Poltergeist.Browser
     else
       @owner.sendResponse(response)
 
+  sendEvent: (eventType, args...) ->
+    @page.sendEvent(eventType, args...)
+    this.sendResponse(true)
+
   add_extension: (extension) ->
     @currentPage.injectExtension extension
     this.sendResponse 'success'
@@ -214,6 +218,15 @@ class Poltergeist.Browser
       this.sendResponse(true)
     else
       this.sendResponse(false)
+
+  mouse_down_at: (x, y) ->
+    this.sendEvent("mousedown", x, y)
+
+  mouse_move_at: (x, y) ->
+    this.sendEvent("mousemove", x, y)
+
+  mouse_up_at: (x, y) ->
+    this.sendEvent("mouseup", x, y)
 
   mouse_event: (page_id, id, name) ->
     # Get the node before changing state, in case there is an exception

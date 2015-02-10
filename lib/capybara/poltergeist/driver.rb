@@ -173,6 +173,18 @@ module Capybara::Poltergeist
       NoSuchWindowError
     end
 
+    def mouse_down_at(x, y)
+      browser.mouse_down_at(x, y)
+    end
+
+    def mouse_move_at(x, y)
+      browser.mouse_move_at(x, y)
+    end
+
+    def mouse_up_at(x, y)
+      browser.mouse_up_at(x, y)
+    end
+
     def reset!
       browser.reset
       @started = false
